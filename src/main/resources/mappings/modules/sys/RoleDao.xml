@@ -28,7 +28,7 @@
 			<id property="id" column="officeList.id" />
 		</collection>
 	</resultMap>
-	
+
     <sql id="roleColumns">
     	a.id,
     	a.office_id AS "office.id",

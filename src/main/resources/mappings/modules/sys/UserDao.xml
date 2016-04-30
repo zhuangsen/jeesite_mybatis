@@ -144,7 +144,7 @@
 		LEFT JOIN sys_role_office ro ON ro.role_id = r.id -->
 		WHERE a.login_name = #{loginName} AND a.del_flag = #{DEL_FLAG_NORMAL}
 	</select>
-	
+
 	<!-- 分页查询用户信息 -->
 	<select id="findList" resultType="User">
 		SELECT
@@ -324,7 +324,7 @@
 			password = #{password} 
 		WHERE id = #{id}
 	</update>
-	
+
 	<!-- 更新登录信息，如登录IP、登录时间 -->
 	<update id="updateLoginInfo">
 		UPDATE sys_user SET 
@@ -335,7 +335,7 @@
 	
 	<!-- 逻辑删除用户 -->
 	<update id="delete">
-		UPDATE sys_user SET 
+		UPDATE sys_user SET
 			del_flag = #{DEL_FLAG_DELETE}
 		WHERE id = #{id}
 	</update>

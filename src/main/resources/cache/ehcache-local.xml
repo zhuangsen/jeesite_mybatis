@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache updateCheck="false" name="defaultCache">
 
+	<!--CacheManager级别有三个属性可以分别用来限制三种存储器缓存信息的大小，其控制的都是字节数，分别是maxBytesLocalHeap、maxBytesLocalOffHeap和maxBytesLocalDisk。
+     CacheManager级别限制的大小是其内所有的Cache共享的。
+     maxBytesLocalHeap是用来限制缓存所能使用的堆内存的最大字节数的,但是当我们没有指定CacheManager级别的maxBytesLocalHeap时，我们必须在每一个Cache上指定maxBytesLocalHeap或maxEntriesLocalHeap。
+     maxBytesLocalOffHeap是用来限制缓存所能使用的非堆内存的最大字节数。
+     maxBytesLocalDisk是用来限制缓存所能使用的磁盘的最大字节数的。
+     当我们在CacheManager级别指定了maxBytesLocalOffHeap时就会隐式的使所有Cache级别的overflowToOffHeap为true，在Cache级别使用该属性时只会使当前Cache的overflowToOffHeap为true。
+     当我们在CacheManager级别指定了maxBytesLocalDisk时会隐式的指定所有Cache的overflowToDisk为true，而Cache级别只会使当前Cache的overflowToDisk为true。
+     缓存大小的限制可以设置在CacheManager上，也可以设置在单个的Cache上。我们可以设置缓存使用内存的大小，也可以设置缓存使用磁盘的大小，但是使用堆内存的大小是必须设置的，其它可设可不设，默认不设就是无限制。在设置缓存大小的时候，我们可以设置缓存使用某一个存储器的最大字节数，也可以设置缓存在某一个存储器上最多存放元素的数量。-->
+
 	<diskStore path="../temp/jeesite/ehcache" />
 
 	<!-- 默认缓存配置. -->
