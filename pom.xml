@@ -675,7 +675,7 @@
 
 		<!-- 自定义jar依赖包
 		<dependency>
-			<groupId>com.thinkgem.jeesite</groupId>
+			<groupId>com.thinkgem.jeesite_hibernate_hibernate</groupId>
 			<artifactId>test-core</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
@@ -773,10 +773,10 @@
 						</goals>
 						<configuration>
 							<classesDirectory>${project.outputDirectory}</classesDirectory>
-							<finalName>jeesite</finalName>
+							<finalName>jeesite_hibernate</finalName>
 							<outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib</outputDirectory>
 							<includes>
-					        	<include>com/thinkgem/jeesite/**</include>
+					        	<include>com/thinkgem/jeesite_hibernate/**</include>
 					       	</includes>
 						</configuration>
 					</execution>
@@ -799,7 +799,7 @@
 				<configuration>
 			        <obfuscate>true</obfuscate>
 			    	<options>
-                        <option>-injars ${project.build.directory}/${project.artifactId}/WEB-INF/lib/jeesite.jar</option>
+                        <option>-injars ${project.build.directory}/${project.artifactId}/WEB-INF/lib/jeesite_hibernate.jar</option>
                     </options>
                     <outjar>${project.artifactId}/WEB-INF/lib/jeesite_out.jar</outjar>
                     <outputDirectory>${project.build.directory}</outputDirectory>
@@ -831,7 +831,7 @@
 				<version>2.4</version>
 				<configuration>
 					<packagingExcludes>
-						<!-- WEB-INF/classes/com/thinkgem/jeesite/** -->
+						<!-- WEB-INF/classes/com/thinkgem/jeesite_hibernate/** -->
 						WEB-INF/classes/org/apache/ibatis/**,
 						WEB-INF/classes/org/mybatis/spring/**
 					</packagingExcludes>
