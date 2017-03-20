@@ -794,7 +794,7 @@ public class JedisUtils {
 	/**
 	 * 释放资源
 	 * @param jedis
-	 * @param isBroken
+	 * @param jedis
 	 */
 	public static void returnResource(Jedis jedis) {
 		if (jedis != null) {
@@ -804,7 +804,7 @@ public class JedisUtils {
 
 	/**
 	 * 获取byte[]类型Key
-	 * @param key
+	 * @param object
 	 * @return
 	 */
 	public static byte[] getBytesKey(Object object){
@@ -817,7 +817,7 @@ public class JedisUtils {
 	
 	/**
 	 * Object转换byte[]类型
-	 * @param key
+	 * @param object
 	 * @return
 	 */
 	public static byte[] toBytes(Object object){
@@ -826,7 +826,7 @@ public class JedisUtils {
 
 	/**
 	 * byte[]型转换Object
-	 * @param key
+	 * @param object
 	 * @return
 	 */
 	public static Object toObject(byte[] bytes){

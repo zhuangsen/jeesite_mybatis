@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.thinkgem.jeesite_mabatis.tools;
+package com.thinkgem.jeesite_mybatis.tools;
 
 import java.io.BufferedReader;
 import java.io.File;

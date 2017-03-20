@@ -1,4 +1,4 @@
-package com.thinkgem.jeesite_mabatis.test;
+package com.thinkgem.jeesite_mybatis.test;
 
 public class Test {
 

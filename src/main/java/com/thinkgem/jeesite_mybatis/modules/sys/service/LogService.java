@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2012-2013 <a href="httparamMap://github.com/thinkgem/jeesite_hibernate">JeeSite</a> All rights reserved.
+ * Copyright &copy; 2012-2013 <a href="httparamMap://github.com/thinkgem/jeesite_mybatis">JeeSite</a> All rights reserved.
  */
 package com.thinkgem.jeesite_mybatis.modules.sys.service;
 

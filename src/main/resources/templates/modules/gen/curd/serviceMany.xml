@@ -15,9 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.thinkgem.jeesite_hibernate.common.persistence.Page;
-import com.thinkgem.jeesite_hibernate.common.service.CrudService;
-import com.thinkgem.jeesite_hibernate.common.utils.StringUtils;
+import com.thinkgem.jeesite_mybatis.common.persistence.Page;
+import com.thinkgem.jeesite_mybatis.common.service.CrudService;
+import com.thinkgem.jeesite_mybatis.common.utils.StringUtils;
 import ${packageName}.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>.${ClassName};
 import ${packageName}.${moduleName}.dao<#if subModuleName != "">.${subModuleName}</#if>.${ClassName}Dao;
 <#list table.childList as c>

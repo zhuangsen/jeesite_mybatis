@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.thinkgem.jeesite</groupId>
-	<artifactId>jeesite_spring_mvc</artifactId>
+	<artifactId>jeesite_mybatis</artifactId>
 	<version>1.2.6</version>
 	<packaging>war</packaging>
 	
-	<name>jeesite_spring_mvc</name>
+	<name>jeesite_mybatis</name>
 	<url>http://thinkgem.github.com/jeesite</url>
 	<inceptionYear>2012-2014</inceptionYear>
 	
@@ -16,14 +16,14 @@
 	<properties>
 		
 		<!-- main version setting -->
-		<spring.version>4.0.8.RELEASE</spring.version>
+		<spring.version>4.3.6.RELEASE</spring.version>
 		<validator.version>5.1.1.Final</validator.version>
 		<mybatis.version>3.2.8</mybatis.version>
-		<mybatis-spring.version>1.2.2</mybatis-spring.version>
+		<mybatis-spring.version>1.3.0</mybatis-spring.version>
 		<druid.version>1.0.11</druid.version>
 		<ehcache.version>2.6.9</ehcache.version>
 		<ehcache-web.version>2.0.4</ehcache-web.version>
-		<shiro.version>1.2.3</shiro.version>
+		<shiro.version>1.3.0</shiro.version>
 		<sitemesh.version>2.4.2</sitemesh.version>
 		<activiti.version>5.15.1</activiti.version>
 		
@@ -34,7 +34,7 @@
 		<commons-codec.version>1.9</commons-codec.version>
 		<commons-fileupload.version>1.3.1</commons-fileupload.version>
 		<commons-beanutils.version>1.9.1</commons-beanutils.version>
-		<jackson.version>2.2.3</jackson.version>
+		<jackson.version>2.8.5</jackson.version>
 		<fastjson.version>1.1.40</fastjson.version>
 		<xstream.version>1.4.7</xstream.version>
 		<guava.version>17.0</guava.version>
@@ -67,7 +67,7 @@
 			<url>http://192.168.11.36:8888/nexus/content/groups/public</url>
 		</repository> -->
 		
-		<!--<repository>
+		<repository>
             <id>oschina-repos</id>
             <name>Oschina Releases</name>
             <url>http://maven.oschina.net/content/groups/public</url>
@@ -119,7 +119,7 @@
 			<id>thinkgem-repos2</id> 
 			<name>ThinkGem Repository 2</name>
 			<url>https://raw.github.com/thinkgem/repository/master</url>
-		</repository>-->
+		</repository>
 		
 		<repository>
             <id>mvnrepository</id>
@@ -762,9 +762,9 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.4</version>
-				<configuration>
+				<!--<configuration>
 					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
+				</configuration>-->
 				<!-- <executions>
 					<execution>
 						<phase>prepare-package</phase>
@@ -860,7 +860,7 @@
 			</plugin>
 			
 			<!-- Eclipse 插件 -->
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.9</version>
@@ -869,7 +869,7 @@
 					<downloadJavadocs>false</downloadJavadocs>
 					<wtpversion>2.0</wtpversion>
 					<jeeversion>5.0</jeeversion>
-					<!-- <jeeversion>6.0</jeeversion> -->
+					&lt;!&ndash; <jeeversion>6.0</jeeversion> &ndash;&gt;
 					<additionalConfig>
 						<file>
 							<name>.settings/org.eclipse.core.resources.prefs</name>
@@ -882,10 +882,10 @@
 						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
 					</additionalProjectnatures>
 				</configuration>
-			</plugin>
+			</plugin>-->
 			
 			<!-- tomcat6插件 -->
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat6-maven-plugin</artifactId>
 				<version>${tomcat.version}</version> 
@@ -894,7 +894,7 @@
 					<path>/${project.artifactId}</path>
 					<uriEncoding>${project.build.sourceEncoding}</uriEncoding>
 				</configuration>
-			</plugin>
+			</plugin>-->
 			
 			<!-- tomcat7插件 -->
 			<plugin>
@@ -914,21 +914,23 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jetty.version}</version>
 				<configuration>
-					<connectors>
-						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-							<port>${webserver.port}</port>
-						</connector>
-					</connectors>
-					<webAppConfig>
-						<contextPath>/${project.artifactId}</contextPath>
-					</webAppConfig>
-					<systemProperties>  
-						<systemProperty>
-							<name>org.mortbay.util.URI.charset</name>
-							<value>${project.build.sourceEncoding}</value>
-						</systemProperty>
-					</systemProperties>
-				</configuration>
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>${webserver.port}</port>
+                        </connector>
+                    </connectors>
+                    <stopKey>foo</stopKey>
+                    <stopPort>9999</stopPort>
+                    <webAppConfig>
+                        <contextPath>/${project.artifactId}</contextPath>
+                    </webAppConfig>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>org.mortbay.util.URI.charset</name>
+                            <value>${project.build.sourceEncoding}</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
 			</plugin>
 			
 			<!-- resource插件 -->
@@ -968,8 +970,8 @@
 		</plugins>
 	</build>
 	
-	<profiles>
-		<!-- 初始化数据库 -->			
+	<!--<profiles>
+		&lt;!&ndash; 初始化数据库 &ndash;&gt;
 		<profile>
 			<id>init-db</id>
 			<dependencies>
@@ -993,14 +995,14 @@
 						<configuration>
 							<target>
 								
-								<!-- mysql -->
+								&lt;!&ndash; mysql &ndash;&gt;
 								<property name="dbunit.datatype" value="org.dbunit.ext.mysql.MySqlDataTypeFactory" />
 								
-								<!-- mssql
-								<property name="dbunit.datatype" value="org.dbunit.ext.mssql.MsSqlDataTypeFactory" /> -->
+								&lt;!&ndash; mssql
+								<property name="dbunit.datatype" value="org.dbunit.ext.mssql.MsSqlDataTypeFactory" /> &ndash;&gt;
 								
-								<!-- oracle
-								<property name="dbunit.datatype" value="org.dbunit.ext.oracle.Oracle10DataTypeFactory" /> -->
+								&lt;!&ndash; oracle
+								<property name="dbunit.datatype" value="org.dbunit.ext.oracle.Oracle10DataTypeFactory" /> &ndash;&gt;
 								
 								<property file="src/main/resources/jeesite.properties" />
 								<sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" 
@@ -1022,13 +1024,13 @@
 								
 								<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="maven.test.classpath" />
 								
-								<!-- mysql、mssql -->
+								&lt;!&ndash; mysql、mssql &ndash;&gt;
 								<dbunit driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}"
 									 password="${jdbc.password}">
 								
-								<!-- oracle
+								&lt;!&ndash; oracle
 								<dbunit driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}"
-									password="${jdbc.password}" schema="${jdbc.username}" > -->
+									password="${jdbc.password}" schema="${jdbc.username}" > &ndash;&gt;
 									
 									<dbconfig>
 										<property name="datatypeFactory" value="${dbunit.datatype}" />
@@ -1045,10 +1047,10 @@
 				</plugins>
 			</build>
 		</profile>
-	</profiles>
+	</profiles>-->
 	
 	<!-- 开发者信息 -->
-	<developers>  
+	<!--<developers>
 		<developer>
 			<id>thinkgem</id>
 			<name>WangZhen</name>
@@ -1056,6 +1058,6 @@
 			<roles><role>Project lead</role></roles>
 			<timezone>+8</timezone>
 		</developer>
-	</developers>
+	</developers>-->
 	
 </project>

@@ -79,7 +79,8 @@ public class LeaveController extends BaseController {
 
 	/**
 	 * 任务列表
-	 * @param leave	
+	 * @param session
+	 * @param model
 	 */
 	@RequiresPermissions("oa:leave:view")
 	@RequestMapping(value = {"list/task",""})
