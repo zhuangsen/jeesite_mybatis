@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 
-	<display-name>jeesite_spring_mvc</display-name>
+	<display-name>jeesite_mybatis</display-name>
 
 	<!-- Context ConfigLocation -->
 	<context-param>
@@ -113,6 +113,10 @@
 			<param-name>allow</param-name>
 			<param-value>127.0.0.1</param-value>
 		</init-param>
+        <init-param>
+            <param-name>resetEnable</param-name>
+            <param-value>false</param-value>
+        </init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DruidStatView</servlet-name>

@@ -71,9 +71,9 @@ public class ActProcessController extends BaseController {
 
 	/**
 	 * 读取资源，通过部署ID
-	 * @param processDefinitionId  流程定义ID
-	 * @param processInstanceId 流程实例ID
-	 * @param resourceType 资源类型(xml|image)
+	 * @param procDefId  流程定义ID
+	 * @param proInsId 流程实例ID
+	 * @param resType 资源类型(xml|image)
 	 * @param response
 	 * @throws Exception
 	 */
