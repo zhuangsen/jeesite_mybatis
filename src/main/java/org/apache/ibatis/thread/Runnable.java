@@ -76,11 +76,9 @@ public class Runnable implements java.lang.Runnable {
 
 	public void start(final Runnable runnable) {
 
-		new Thread(new java.lang.Runnable() {
-
+/*		new Thread(new java.lang.Runnable() {
 			@Override
 			public void run() {
-
 				try {
 					Thread.sleep(delaySeconds * 1000);
 				} catch (InterruptedException e2) {
@@ -102,7 +100,31 @@ public class Runnable implements java.lang.Runnable {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
+				}
+			}
+		}).start();*/
 
+		new Thread(()->{
+			try {
+				Thread.sleep(delaySeconds * 1000);
+			} catch (InterruptedException e2) {
+				e2.printStackTrace();
+			}
+			refresh = true;
+
+			System.out.println("========= Enabled refresh mybatis mapper =========");
+
+			while (true) {
+				try {
+					runnable.refresh(location, beforeTime);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
+				try {
+					Thread.sleep(sleepSeconds * 1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
 			}
 		}).start();

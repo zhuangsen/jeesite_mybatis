@@ -366,6 +366,7 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void afterPropertiesSet() throws Exception {
 		notNull(dataSource, "Property 'dataSource' is required");
 		notNull(sqlSessionFactoryBuilder,
