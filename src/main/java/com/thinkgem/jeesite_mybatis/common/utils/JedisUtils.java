@@ -783,11 +783,13 @@ public class JedisUtils {
 	/**
 	 * 归还资源
 	 * @param jedis
-	 * @param isBroken
+	 * @param jedis
 	 */
 	public static void returnBrokenResource(Jedis jedis) {
 		if (jedis != null) {
-			jedisPool.returnBrokenResource(jedis);
+            //已过时
+//			jedisPool.returnBrokenResource(jedis);
+            jedisPool.close();
 		}
 	}
 	
@@ -798,7 +800,9 @@ public class JedisUtils {
 	 */
 	public static void returnResource(Jedis jedis) {
 		if (jedis != null) {
-			jedisPool.returnResource(jedis);
+			//已过时
+//			jedisPool.returnResource(jedis);
+			jedisPool.close();
 		}
 	}
 

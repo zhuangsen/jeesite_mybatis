@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import com.thinkgem.jeesite_mybatis.common.utils.StringUtils;
 import org.activiti.engine.impl.persistence.entity.GroupEntity;
@@ -97,10 +98,10 @@ public class ActUtils {
 					if (m.getName().equals("getAct")){
 						Object act = m.invoke(entity, new Object[]{});
 						Method actMet = act.getClass().getMethod("getTaskId");
-						map.put("taskId", ObjectUtils.toString(m.invoke(act, new Object[]{}), ""));
+						map.put("taskId", Objects.toString(m.invoke(act, new Object[]{}), ""));
 					}else{
 						field.add(StringUtils.uncapitalize(m.getName().substring(3)));
-						value.add(ObjectUtils.toString(m.invoke(entity, new Object[]{}), ""));
+						value.add(Objects.toString(m.invoke(entity, new Object[]{}), ""));
 					}
 				}
 			}

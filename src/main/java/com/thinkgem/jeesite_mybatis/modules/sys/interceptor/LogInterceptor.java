@@ -1,6 +1,4 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
+
 package com.thinkgem.jeesite_mybatis.modules.sys.interceptor;
 
 import java.text.SimpleDateFormat;
@@ -8,7 +6,9 @@ import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thinkgem.jeesite_mybatis.common.config.Global;
 import com.thinkgem.jeesite_mybatis.modules.sys.utils.LogUtils;
+import eu.bitwalker.useragentutils.UserAgent;
 import org.springframework.core.NamedThreadLocal;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,11 +24,16 @@ import com.thinkgem.jeesite_mybatis.common.utils.DateUtils;
 public class LogInterceptor extends BaseService implements HandlerInterceptor {
 
 	private static final ThreadLocal<Long> startTimeThreadLocal =
-			new NamedThreadLocal<Long>("ThreadLocal StartTime");
+			new NamedThreadLocal<>("ThreadLocal StartTime");
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, 
 			Object handler) throws Exception {
+		System.out.println("==============================执行preHandle==============================");
+        String requestRri = request.getRequestURI();
+        String uriPrefix = request.getContextPath() + Global.getAdminPath();
+        System.out.println("---------requestRri:"+requestRri);
+        System.out.println("---------uriPrefix"+uriPrefix);
 		if (logger.isDebugEnabled()){
 			long beginTime = System.currentTimeMillis();//1、开始时间  
 	        startTimeThreadLocal.set(beginTime);		//线程绑定变量（该数据只有当前请求的线程可见）  
@@ -41,7 +46,18 @@ public class LogInterceptor extends BaseService implements HandlerInterceptor {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, 
 			ModelAndView modelAndView) throws Exception {
+		System.out.println("==============================执行postHandle==============================");
+		String requestRri = request.getRequestURI();
+		String uriPrefix = request.getContextPath() + Global.getAdminPath();
+		System.out.println("---------requestRri:"+requestRri);
+        System.out.println("---------uriPrefix"+uriPrefix);
+
 		if (modelAndView != null){
+            String viewName = modelAndView.getViewName();
+            System.out.println("---------viewName:"+viewName);
+            UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
+            System.out.println("---------deviceType:"+userAgent.getOperatingSystem().getDeviceType());
+
 			logger.info("ViewName: " + modelAndView.getViewName());
 		}
 	}
@@ -49,6 +65,13 @@ public class LogInterceptor extends BaseService implements HandlerInterceptor {
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, 
 			Object handler, Exception ex) throws Exception {
+
+        String requestRri = request.getRequestURI();
+        String uriPrefix = request.getContextPath() + Global.getAdminPath();
+
+        System.out.println("==============================执行afterCompletion==============================");
+        System.out.println("---------requestRri:"+requestRri);
+        System.out.println("---------uriPrefix:"+uriPrefix);
 
 		// 保存日志
 		LogUtils.saveLog(request, handler, ex, null);
