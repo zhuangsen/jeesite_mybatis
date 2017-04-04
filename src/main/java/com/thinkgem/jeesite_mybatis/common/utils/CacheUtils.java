@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.common.utils;
 
 import net.sf.ehcache.Cache;
@@ -9,12 +6,10 @@ import net.sf.ehcache.Element;
 
 /**
  * Cache工具类
- * @author ThinkGem
- * @version 2013-5-29
  */
 public class CacheUtils {
 	
-	private static CacheManager cacheManager = ((CacheManager)SpringContextHolder.getBean("cacheManager"));
+	private static CacheManager cacheManager = SpringContextHolder.getBean("cacheManager");
 
 	private static final String SYS_CACHE = "sysCache";
 

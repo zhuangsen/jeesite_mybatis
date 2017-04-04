@@ -46,8 +46,8 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     }
     
     /**
-     * 转换为字节数组
-     * @param str
+     * 字节数组转换为字符串
+     * @param bytes
      * @return
      */
     public static String toString(byte[] bytes){

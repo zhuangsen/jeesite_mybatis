@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
 	default-lazy-init="true">
@@ -14,7 +15,6 @@
 	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
 		<property name="dataSource" ref="dataSource" />
 		<property name="transactionManager" ref="transactionManager" />
-		<property name="deploymentResources" value="classpath*:/act/deployments/**/*.bar"/>
 		<property name="databaseSchemaUpdate" value="true" />
 		<property name="jobExecutorActivate" value="false" />
 		<property name="history" value="full" />
@@ -22,19 +22,25 @@
 
         <!-- UUID作为主键生成策略 -->
         <property name="idGenerator" ref="idGen" />
-        
+		<!-- 自动部署 -->
+		<property name="deploymentResources">
+			<list>
+				<value>classpath*:/act/deployments/**/*.bar</value>
+			</list>
+		</property>
+		<!--or-->
+		<!--<property name="deploymentResources" value="classpath*:/act/deployments/**/*.bar"/>-->
+
         <!-- 生成流程图的字体 -->
         <property name="activityFontName" value="${activiti.diagram.activityFontName}"/>
         <property name="labelFontName" value="${activiti.diagram.labelFontName}"/>
-        
         <!-- 自定义用户权限 -->
         <property name="customSessionFactories"> 
             <list>
-				<bean class="com.thinkgem.jeesite_mybatis.modules.act.service.ext.ActUserEntityServiceFactory"/>
-				<bean class="com.thinkgem.jeesite_mybatis.modules.act.service.ext.ActGroupEntityServiceFactory"/>
+                <bean class="com.thinkgem.jeesite_mybatis.modules.act.service.ext.ActUserEntityServiceFactory"/>
+                <bean class="com.thinkgem.jeesite_mybatis.modules.act.service.ext.ActGroupEntityServiceFactory"/>
             </list>
     	</property>
-        
 	</bean>
 	
 	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">

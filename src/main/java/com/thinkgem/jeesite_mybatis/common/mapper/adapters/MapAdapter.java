@@ -19,7 +19,7 @@ public class MapAdapter extends XmlAdapter<MapConvertor, Map<String, Object>> {
   
     @Override  
     public Map<String, Object> unmarshal(MapConvertor map) throws Exception {  
-        Map<String, Object> result = new HashMap<String, Object>();  
+        Map<String, Object> result = new HashMap<>();
         for (MapConvertor.MapEntry e : map.getEntries()) {  
             result.put(e.getKey(), e.getValue());  
         }  

@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.sys.utils;
 
 import java.util.List;
@@ -18,8 +15,6 @@ import com.google.common.collect.Maps;
 
 /**
  * 字典工具类
- * @author ThinkGem
- * @version 2013-5-29
  */
 public class DictUtils {
 	

@@ -1,35 +1,29 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.sys.utils;
 
 import java.util.List;
-
-import com.thinkgem.jeesite_mybatis.common.utils.CacheUtils;
-import com.thinkgem.jeesite_mybatis.common.utils.SpringContextHolder;
-import com.thinkgem.jeesite_mybatis.modules.sys.dao.AreaDao;
-import com.thinkgem.jeesite_mybatis.modules.sys.dao.MenuDao;
-import com.thinkgem.jeesite_mybatis.modules.sys.dao.OfficeDao;
-import com.thinkgem.jeesite_mybatis.modules.sys.dao.RoleDao;
-import com.thinkgem.jeesite_mybatis.modules.sys.security.SystemAuthorizingRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
+import com.thinkgem.jeesite_mybatis.common.utils.CacheUtils;
 import com.thinkgem.jeesite_mybatis.common.service.BaseService;
+import com.thinkgem.jeesite_mybatis.common.utils.SpringContextHolder;
+import com.thinkgem.jeesite_mybatis.modules.sys.dao.AreaDao;
+import com.thinkgem.jeesite_mybatis.modules.sys.dao.MenuDao;
+import com.thinkgem.jeesite_mybatis.modules.sys.dao.OfficeDao;
+import com.thinkgem.jeesite_mybatis.modules.sys.dao.RoleDao;
 import com.thinkgem.jeesite_mybatis.modules.sys.dao.UserDao;
 import com.thinkgem.jeesite_mybatis.modules.sys.entity.Area;
 import com.thinkgem.jeesite_mybatis.modules.sys.entity.Menu;
 import com.thinkgem.jeesite_mybatis.modules.sys.entity.Office;
 import com.thinkgem.jeesite_mybatis.modules.sys.entity.Role;
 import com.thinkgem.jeesite_mybatis.modules.sys.entity.User;
+import com.thinkgem.jeesite_mybatis.modules.sys.security.SystemAuthorizingRealm.Principal;
 
 /**
  * 用户工具类
- * @author ThinkGem
- * @version 2013-12-05
  */
 public class UserUtils {
 
@@ -118,7 +112,7 @@ public class UserUtils {
 	 * @return 取不到返回 new User()
 	 */
 	public static User getUser(){
-		SystemAuthorizingRealm.Principal principal = getPrincipal();
+		Principal principal = getPrincipal();
 		if (principal!=null){
 			User user = get(principal.getId());
 			if (user != null){
@@ -230,10 +224,10 @@ public class UserUtils {
 	/**
 	 * 获取当前登录者对象
 	 */
-	public static SystemAuthorizingRealm.Principal getPrincipal(){
+	public static Principal getPrincipal(){
 		try{
 			Subject subject = SecurityUtils.getSubject();
-			SystemAuthorizingRealm.Principal principal = (SystemAuthorizingRealm.Principal)subject.getPrincipal();
+			Principal principal = (Principal)subject.getPrincipal();
 			if (principal != null){
 				return principal;
 			}

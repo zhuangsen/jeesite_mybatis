@@ -157,10 +157,11 @@
             });
             // 初始化点击第一个一级菜单
             $("#menu a.menu:first span").click();
-            // <c:if test="${tabmode eq '1'}"> 下拉菜单以选项卡方式打开
+            //<c:if test="${tabmode eq '1'}"> 下拉菜单以选项卡方式打开
             $("#userInfo .dropdown-menu a").mouseup(function () {
                 return addTab($(this), true);
-            });// </c:if>
+            });
+            //</c:if>
             // 鼠标移动到边界自动弹出左侧菜单
             $("#openClose").mouseover(function () {
                 if ($(this).hasClass("open")) {

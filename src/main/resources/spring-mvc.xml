@@ -28,7 +28,7 @@
                 <property name="supportedMediaTypes">
                 	<list><value>application/json;charset=UTF-8</value></list>
                 </property>
-                <property name="prettyPrint" value="false"/>
+                <property name="prettyPrint" value="true"/>
                 <property name="objectMapper">  
                     <bean class="com.thinkgem.jeesite_mybatis.common.mapper.JsonMapper"></bean>
                 </property> 
@@ -53,6 +53,11 @@
 		        <property name="supportedMediaTypes" value="application/xml"></property>
 			</bean>
 		</mvc:message-converters>
+		<!--<mvc:argument-resolvers>
+			<bean class="com.thinkgem.jeesite_mybatis.common.web.SecureModelAttributeMethodArgumentResolver">
+				<constructor-arg value="false"/>
+			</bean>
+		</mvc:argument-resolvers>-->
 	</mvc:annotation-driven>
 	
     <!-- REST中根据URL后缀自动判定Content-Type及相应的View -->
@@ -66,39 +71,45 @@
         <property name="ignoreAcceptHeader" value="true"/>
         <property name="favorPathExtension" value="true"/>
 	</bean>
-	
-	<!-- 定义视图文件解析 -->
+
+	<!-- 视图文件解析配置 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="${web.view.prefix}"/>
 		<property name="suffix" value="${web.view.suffix}"/>
 	</bean>
-	
+
 	<!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
 	<mvc:default-servlet-handler />
 	
 	<!-- 静态资源映射 -->
     <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
-	
+
 	<!-- 定义无Controller的path<->view直接映射 -->
 	<mvc:view-controller path="/" view-name="redirect:${web.view.index}"/>
 	
 	<!-- 拦截器配置，拦截顺序：先执行后定义的，排在第一位的最后执行。-->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="${adminPath}/**" />
+			<!--<mvc:mapping path="${adminPath}/**" />-->
+            <mvc:mapping path="/**" />
 			<mvc:exclude-mapping path="${adminPath}/"/>
-			<mvc:exclude-mapping path="${adminPath}/login"/>
+			<!--<mvc:exclude-mapping path="${adminPath}/login"/>-->
 			<mvc:exclude-mapping path="${adminPath}/sys/menu/tree"/>
 			<mvc:exclude-mapping path="${adminPath}/sys/menu/treeData"/>
 			<mvc:exclude-mapping path="${adminPath}/oa/oaNotify/self/count"/>
 			<bean class="com.thinkgem.jeesite_mybatis.modules.sys.interceptor.LogInterceptor" />
 		</mvc:interceptor>
 		<!-- 手机视图拦截器 -->
-		<mvc:interceptor>
+		<!--<mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<bean class="com.thinkgem.jeesite_mybatis.modules.sys.interceptor.MobileInterceptor" />
-		</mvc:interceptor>
+		</mvc:interceptor>-->
 	</mvc:interceptors>
+
+	<!-- 拦截器配置 -->
+	<!--<mvc:interceptors>
+		<bean class="com.thinkgem.jeesite_mybatis.modules.sys.interceptor.LogInterceptor" />
+	</mvc:interceptors>-->
 	
 	<!-- 支持Shiro对Controller的方法级AOP安全控制 begin-->
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">

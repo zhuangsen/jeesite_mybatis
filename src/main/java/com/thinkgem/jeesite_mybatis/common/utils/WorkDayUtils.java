@@ -110,7 +110,7 @@ public class WorkDayUtils {
 	 * @return
 	 */
 	public Calendar getNextMonday(Calendar date) {
-		Calendar result = null;
+		Calendar result;
 		result = date;
 		do {
 			result = (Calendar) result.clone();

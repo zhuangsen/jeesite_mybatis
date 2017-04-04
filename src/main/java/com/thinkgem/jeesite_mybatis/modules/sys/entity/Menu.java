@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.sys.entity;
 
 import java.util.List;
@@ -15,8 +12,6 @@ import com.thinkgem.jeesite_mybatis.common.persistence.DataEntity;
 
 /**
  * 菜单Entity
- * @author ThinkGem
- * @version 2013-05-15
  */
 public class Menu extends DataEntity<Menu> {
 

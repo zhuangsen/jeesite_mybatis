@@ -1,9 +1,6 @@
 /*!
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- * 
  * 通用公共方法
- * @author ThinkGem
- * @version 2014-4-29
+ * Licensed under the Apache License, Version 2.0 (the "License");
  */
 $(document).ready(function() {
 	try{

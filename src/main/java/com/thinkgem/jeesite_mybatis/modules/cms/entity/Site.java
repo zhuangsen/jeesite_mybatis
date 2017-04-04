@@ -123,7 +123,7 @@ public class Site extends DataEntity<Site> {
 	 * 获取当前编辑的站点编号
 	 */
 	public static String getCurrentSiteId(){
-		String siteId = (String)UserUtils.getCache("siteId");
+		String siteId = UserUtils.getCache("siteId").toString();
 		return StringUtils.isNotBlank(siteId)?siteId:defaultSiteId();
 	}
 

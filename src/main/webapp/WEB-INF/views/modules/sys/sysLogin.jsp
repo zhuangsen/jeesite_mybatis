@@ -1,101 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="org.apache.shiro.web.filter.authc.FormAuthenticationFilter" %>
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
 <html>
 <head>
     <title>${fns:getConfig('productName')} 登录</title>
     <meta name="decorator" content="blank"/>
-    <style type="text/css">
-        html, body, table {
-            background-color: #f5f5f5;
-            width: 100%;
-            text-align: center;
-        }
-
-        .form-signin-heading {
-            font-family: Helvetica, Georgia, Arial, sans-serif, 黑体;
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #0663a2;
-        }
-
-        .form-signin {
-            position: relative;
-            text-align: left;
-            width: 300px;
-            padding: 25px 29px 29px;
-            margin: 0 auto 20px;
-            background-color: #fff;
-            border: 1px solid #e5e5e5;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-        }
-
-        .form-signin .checkbox {
-            margin-bottom: 10px;
-            color: #0663a2;
-        }
-
-        .form-signin .input-label {
-            font-size: 16px;
-            line-height: 23px;
-            color: #999;
-        }
-
-        .form-signin .input-block-level {
-            font-size: 16px;
-            height: auto;
-            margin-bottom: 15px;
-            padding: 7px;
-            *width: 283px;
-            *padding-bottom: 0;
-            _padding: 7px 7px 9px 7px;
-        }
-
-        .form-signin .btn.btn-large {
-            font-size: 16px;
-        }
-
-        .form-signin #themeSwitch {
-            position: absolute;
-            right: 15px;
-            bottom: 10px;
-        }
-
-        .form-signin div.validateCode {
-            padding-bottom: 15px;
-        }
-
-        .mid {
-            vertical-align: middle;
-        }
-
-        .header {
-            height: 80px;
-            padding-top: 20px;
-        }
-
-        .alert {
-            position: relative;
-            width: 300px;
-            margin: 0 auto;
-            *padding-bottom: 0px;
-        }
-
-        label.error {
-            background: none;
-            width: 270px;
-            font-weight: normal;
-            color: inherit;
-            margin: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="${ctxStatic}/common/typica-login.css">
+    <script src="${ctxStatic}/common/backstretch.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $.backstretch([
+                "${ctxStatic}/images/bg1.jpg",
+                "${ctxStatic}/images/bg2.jpg",
+                "${ctxStatic}/images/bg3.jpg"
+            ], {duration: 10000, fade: 2000});
+
             $("#loginForm").validate({
                 rules: {
                     validateCode: {remote: "${pageContext.request.contextPath}/servlet/validateCodeServlet"}
@@ -118,6 +36,20 @@
     </script>
 </head>
 <body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="${ctx}"><img src="${ctxStatic}/images/logo.png" alt="Jeesite Admin"
+                                                style="height:40px;"></a>
+        </div>
+    </div>
+</div>
+
 <!--[if lte IE 6]><br/>
 <div class='alert alert-block' style="text-align:left;padding-bottom:10px;"><a class="close" data-dismiss="alert">x</a>
     <h4>温馨提示：</h4>
@@ -129,23 +61,26 @@
         <label id="loginError" class="error">${message}</label>
     </div>
 </div>
-<h1 class="form-signin-heading">${fns:getConfig('productName')}</h1>
+<h1 class="form-signin-heading"><a>${fns:getConfig('productName')}</a></h1>
 <form id="loginForm" class="form-signin" action="${ctx}/login" method="post">
-    <label class="input-label" for="username">登录名</label>
+    <label class="input-label" for="username"><a>登录名</a></label>
     <input type="text" id="username" name="username" class="input-block-level required" value="${username}">
-    <label class="input-label" for="password">密码</label>
+    <label class="input-label" for="password"><a>密码</a></label>
     <input type="password" id="password" name="password" class="input-block-level required">
     <c:if test="${isValidateCodeLogin}">
         <div class="validateCode">
             <label class="input-label mid" for="validateCode">验证码</label>
             <sys:validateCode name="validateCode" inputCssStyle="margin-bottom:0;"/>
         </div>
-    </c:if><%--
-		<label for="mobile" title="手机登录"><input type="checkbox" id="mobileLogin" name="mobileLogin" ${mobileLogin ? 'checked' : ''}/></label> --%>
+    </c:if>
+    <%--
+        <label for="mobile" title="手机登录">
+        <input type="checkbox" id="mobileLogin" name="mobileLogin" ${mobileLogin ? 'checked' : ''}/></label>
+    --%>
     <input class="btn btn-large btn-primary" type="submit" value="登 录"/>&nbsp;&nbsp;
-    <label for="rememberMe" title="下次不需要再登录"><input type="checkbox" id="rememberMe"
-                                                    name="rememberMe" ${rememberMe ? 'checked' : ''}/>
-        记住我（公共场所慎用）</label>
+    <label for="rememberMe" title="下次不需要再登录">
+        <input type="checkbox" id="rememberMe" name="rememberMe" ${rememberMe ? 'checked' : ''}/>记住我（公共场所慎用）
+    </label>
     <div id="themeSwitch" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown"
            href="#">${fns:getDictLabel(cookie.theme.value,'theme','默认主题')}<b class="caret"></b></a>
@@ -160,11 +95,11 @@
         <script type="text/javascript">$('#themeSwitch').hide();</script><![endif]-->
     </div>
 </form>
-<div class="footer">
+<footer class="white navbar-fixed-bottom">
     Copyright &copy; 2012-${fns:getConfig('copyrightYear')} <a
         href="${pageContext.request.contextPath}${fns:getFrontPath()}">${fns:getConfig('productName')}</a> - Powered By
     <a href="http://jeesite.com" target="_blank">JeeSite</a> ${fns:getConfig('version')}
-</div>
-<script src="${ctxStatic}/flash/zoom.min.js" type="text/javascript"></script>
+</footer>
+<%--<script src="${ctxStatic}/flash/zoom.min.js" type="text/javascript"></script>--%>
 </body>
 </html>

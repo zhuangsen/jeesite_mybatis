@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.sys.entity;
 
 import java.util.Date;
@@ -23,8 +20,6 @@ import com.thinkgem.jeesite_mybatis.common.utils.excel.fieldtype.RoleListType;
 
 /**
  * 用户Entity
- * @author ThinkGem
- * @version 2013-12-05
  */
 public class User extends DataEntity<User> {
 

@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.sys.security;
 
 import javax.servlet.ServletRequest;
@@ -17,8 +14,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * 表单验证（包含验证码）过滤类
- * @author ThinkGem
- * @version 2014-5-19
  */
 @Service
 public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.FormAuthenticationFilter {
@@ -31,6 +26,7 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
 	private String mobileLoginParam = DEFAULT_MOBILE_PARAM;
 	private String messageParam = DEFAULT_MESSAGE_PARAM;
 
+    @Override
 	protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) {
 		String username = getUsername(request);
 		String password = getPassword(request);
@@ -44,26 +40,7 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
 		return new UsernamePasswordToken(username, password.toCharArray(), rememberMe, host, captcha, mobile);
 	}
 
-	public String getCaptchaParam() {
-		return captchaParam;
-	}
 
-	protected String getCaptcha(ServletRequest request) {
-		return WebUtils.getCleanParam(request, getCaptchaParam());
-	}
-
-	public String getMobileLoginParam() {
-		return mobileLoginParam;
-	}
-	
-	protected boolean isMobileLogin(ServletRequest request) {
-        return WebUtils.isTrue(request, getMobileLoginParam());
-    }
-	
-	public String getMessageParam() {
-		return messageParam;
-	}
-	
 	/**
 	 * 登录成功之后跳转URL
 	 */
@@ -103,6 +80,26 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
         request.setAttribute(getFailureKeyAttribute(), className);
         request.setAttribute(getMessageParam(), message);
         return true;
+	}
+
+	public String getCaptchaParam() {
+		return captchaParam;
+	}
+
+	protected String getCaptcha(ServletRequest request) {
+		return WebUtils.getCleanParam(request, getCaptchaParam());
+	}
+
+	public String getMobileLoginParam() {
+		return mobileLoginParam;
+	}
+
+	protected boolean isMobileLogin(ServletRequest request) {
+		return WebUtils.isTrue(request, getMobileLoginParam());
+	}
+
+	public String getMessageParam() {
+		return messageParam;
 	}
 	
 }

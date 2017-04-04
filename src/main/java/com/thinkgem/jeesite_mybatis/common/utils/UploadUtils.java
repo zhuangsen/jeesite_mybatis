@@ -233,10 +233,7 @@ public class UploadUtils {
 
 	/**
 	 * 保存文件
-	 * 
-	 * @param obj
-	 *            要上传的文件域
-	 * @param file
+	 * @param item 要上传的文件域
 	 * @return
 	 */
 	private String saveFile(FileItem item) {

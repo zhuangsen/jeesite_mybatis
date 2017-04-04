@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.common.config;
 
 import java.io.File;
@@ -16,8 +13,6 @@ import com.google.common.collect.Maps;
 
 /**
  * 全局配置类
- * @author ThinkGem
- * @version 2014-06-25
  */
 public class Global {
 
@@ -68,7 +63,7 @@ public class Global {
 	
 	/**
 	 * 获取配置
-	 * @see ${fns:getConfig('adminPath')}
+	 * @see {fns:getConfig('adminPath')}
 	 */
 	public static String getConfig(String key) {
 		String value = map.get(key);
@@ -118,7 +113,7 @@ public class Global {
     
 	/**
 	 * 页面获取常量
-	 * @see ${fns:getConst('YES')}
+	 * @see {fns:getConst('YES')}
 	 */
 	public static Object getConst(String field) {
 		try {

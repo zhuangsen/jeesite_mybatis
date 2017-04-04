@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.sys.security;
 
 import java.io.Serializable;
@@ -8,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.validation.Valid;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -41,8 +39,6 @@ import com.thinkgem.jeesite_mybatis.modules.sys.web.LoginController;
 
 /**
  * 系统安全认证实现类
- * @author ThinkGem
- * @version 2014-7-5
  */
 @Service
 //@DependsOn({"userDao","roleDao","menuDao"})
@@ -68,6 +64,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 		if (LoginController.isValidateCodeLogin(token.getUsername(), false, false)){
 			Session session = UserUtils.getSession();
 			String code = (String)session.getAttribute(ValidateCodeServlet.VALIDATE_CODE);
+//			String code = (String)session.getAttribute(FormAuthenticationFilter.DEFAULT_CAPTCHA_PARAM);
 			if (token.getCaptcha() == null || !token.getCaptcha().toUpperCase().equals(code)){
 				throw new AuthenticationException("msg:验证码错误, 请重试.");
 			}

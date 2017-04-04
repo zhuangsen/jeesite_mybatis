@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.common.service;
 
 import java.util.List;
@@ -17,8 +14,6 @@ import com.google.common.collect.Lists;
 
 /**
  * Service基类
- * @author ThinkGem
- * @version 2014-05-16
  */
 @Transactional(readOnly = true)
 public abstract class BaseService {

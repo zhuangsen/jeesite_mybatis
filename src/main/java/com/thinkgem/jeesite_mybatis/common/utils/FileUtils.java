@@ -384,7 +384,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
 	/**
 	 * 写入文件
-	 * @param file 要写入的文件
+	 * @param fileName 要写入的文件
 	 */
 	public static void writeToFile(String fileName, String content, boolean append) {
 		try {
@@ -397,7 +397,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
 	/**
 	 * 写入文件
-	 * @param file 要写入的文件
+	 * @param fileName 要写入的文件
 	 */
 	public static void writeToFile(String fileName, String content, String encoding, boolean append) {
 		try {
@@ -583,7 +583,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
 	/**
 	 * 获取待压缩文件在ZIP文件中entry的名字，即相对于跟目录的相对路径名
-	 * @param dirPat 目录名
+	 * @param dirPath 目录名
 	 * @param file entry文件名
 	 * @return
 	 */

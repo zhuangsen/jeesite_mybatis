@@ -43,7 +43,7 @@ public class ValidateCodeServlet extends HttpServlet {
 	
 	public static boolean validate(HttpServletRequest request, String validateCode){
 		String code = (String)request.getSession().getAttribute(VALIDATE_CODE);
-		return validateCode.toUpperCase().equals(code); 
+        return validateCode.toUpperCase().equals(code);
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)

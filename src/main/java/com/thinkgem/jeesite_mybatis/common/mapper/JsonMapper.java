@@ -1,11 +1,12 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.common.mapper;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -28,8 +29,6 @@ import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 /**
  * 简单封装Jackson，实现JSON String<->Java Object的Mapper.
  * 封装不同的输出风格, 使用不同的builder函数创建实例.
- * @author ThinkGem
- * @version 2013-11-15
  */
 public class JsonMapper extends ObjectMapper {
 
@@ -56,8 +55,7 @@ public class JsonMapper extends ObjectMapper {
 		this.getSerializerProvider().setNullValueSerializer(new JsonSerializer<Object>(){
 			@Override
 			public void serialize(Object value, JsonGenerator jgen,
-					SerializerProvider provider) throws IOException,
-					JsonProcessingException {
+					SerializerProvider provider) throws IOException{
 				jgen.writeString("");
 			}
         });
@@ -65,8 +63,7 @@ public class JsonMapper extends ObjectMapper {
 		this.registerModule(new SimpleModule().addSerializer(String.class, new JsonSerializer<String>(){
 			@Override
 			public void serialize(String value, JsonGenerator jgen,
-					SerializerProvider provider) throws IOException,
-					JsonProcessingException {
+					SerializerProvider provider) throws IOException{
 				jgen.writeString(StringEscapeUtils.unescapeHtml4(value));
 			}
         }));
@@ -238,7 +235,7 @@ public class JsonMapper extends ObjectMapper {
 	 * 测试
 	 */
 	public static void main(String[] args) {
-/*		List<Map<String, Object>> list = Lists.newArrayList();
+		List<Map<String, Object>> list = Lists.newArrayList();
 		Map<String, Object> map = Maps.newHashMap();
 		map.put("id", 1);
 		map.put("pId", -1);
@@ -251,8 +248,7 @@ public class JsonMapper extends ObjectMapper {
 		map.put("open", true);
 		list.add(map);
 		String json = JsonMapper.getInstance().toJson(list);
-		System.out.println(json);*/
-		
+		System.out.println(json);
 	}
 	
 }

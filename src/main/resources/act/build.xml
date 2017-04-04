@@ -3,7 +3,7 @@
 
 	<!-- properties from key value -->
 	<property name="designs" value="designs" />
-	<property name="deployments" value="deployments" />
+	<property name="act.deployments" value="act.deployments" />
 
 	<!-- 显示欢迎信息以及操作提示 -->
 	<target name="welcome">
@@ -14,7 +14,7 @@
 	<target name="oa.leave">
 		<echo>打包流程定义：请假流程</echo>
 		<copy file="${designs}/oa/leave/leave.bpmn" tofile="${designs}/oa/leave/leave.bpmn20.xml" />
-		<zip destfile="${deployments}/oa/leave/leave.bar" basedir="${designs}/oa/leave" update="true" includes="*.xml,*.png" />
+		<zip destfile="${act.deployments}/oa/leave/leave.bar" basedir="${designs}/oa/leave" update="true" includes="*.xml,*.png" />
 		<delete file="${designs}/oa/leave/leave.bpmn20.xml" />
 	</target>
 	
@@ -22,7 +22,7 @@
 	<target name="oa.test_audit">
 		<echo>打包流程定义：测试审核流程</echo>
 		<copy file="${designs}/oa/test_audit/test_audit.bpmn" tofile="${designs}/oa/test_audit/test_audit.bpmn20.xml" />
-		<zip destfile="${deployments}/oa/test_audit/test_audit.bar" basedir="${designs}/oa/test_audit" update="true" includes="*.xml,*.png" />
+		<zip destfile="${act.deployments}/oa/test_audit/test_audit.bar" basedir="${designs}/oa/test_audit" update="true" includes="*.xml,*.png" />
 		<delete file="${designs}/oa/test_audit/test_audit.bpmn20.xml" />
 	</target>
 

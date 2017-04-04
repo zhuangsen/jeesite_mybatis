@@ -47,8 +47,9 @@ public class ZxingHandler {
 			BitMatrix bitMatrix = new MultiFormatWriter().encode(contents,
 					BarcodeFormat.EAN_13, codeWidth, height, null);
 
-			MatrixToImageWriter
-					.writeToFile(bitMatrix, "png", new File(imgPath));
+			//已过时
+			//MatrixToImageWriter.writeToFile(bitMatrix, "png", new File(imgPath));
+			MatrixToImageWriter.writeToPath(bitMatrix, "png", new File(imgPath).toPath());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -62,8 +63,8 @@ public class ZxingHandler {
 	 * @return String
 	 */
 	public static String decode(String imgPath) {
-		BufferedImage image = null;
-		Result result = null;
+		BufferedImage image;
+		Result result;
 		try {
 			image = ImageIO.read(new File(imgPath));
 			if (image == null) {
@@ -99,7 +100,7 @@ public class ZxingHandler {
 					BarcodeFormat.QR_CODE, width, height, hints);
 
 			MatrixToImageWriter
-					.writeToFile(bitMatrix, "png", new File(imgPath));
+					.writeToPath(bitMatrix, "png", new File(imgPath).toPath());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -113,8 +114,8 @@ public class ZxingHandler {
 	 * @return String
 	 */
 	public static String decode2(String imgPath) {
-		BufferedImage image = null;
-		Result result = null;
+		BufferedImage image;
+		Result result;
 		try {
 			image = ImageIO.read(new File(imgPath));
 			if (image == null) {

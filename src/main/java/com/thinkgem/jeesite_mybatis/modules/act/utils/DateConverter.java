@@ -30,7 +30,6 @@ public class DateConverter implements Converter {
 
 	private static final String MONTH_PATTERN = "yyyy-MM";
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object convert(Class type, Object value) {
 		Object result = null;
 		if (type == Date.class) {
@@ -63,7 +62,7 @@ public class DateConverter implements Converter {
 			if (result == null && StringUtils.isNotEmpty((String) value)) {
 
 				try {
-					result = new Date(new Long((String) value).longValue());
+					result = new Date(new Long(value.toString()).longValue());
 				} catch (Exception e) {
 					logger.error("Converting from milliseconds to Date fails!");
 					e.printStackTrace();
