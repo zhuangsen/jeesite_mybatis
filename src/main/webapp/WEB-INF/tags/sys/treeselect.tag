@@ -31,7 +31,7 @@
            data-msg-required="${dataMsgRequired}"
            class="${cssClass}" style="${cssStyle}"/><a id="${id}Button" href="javascript:"
                                                        class="btn ${disabled} ${hideBtn ? 'hide' : ''}"
-                                                       style="${smallBtn?'padding:4px 2px;':''}">&nbsp;<i
+                         a.browser                              style="${smallBtn?'padding:4px 2px;':''}">&nbsp;<i
         class="icon-search"></i>&nbsp;</a>&nbsp;&nbsp;
 </div>
 <script type="text/javascript">

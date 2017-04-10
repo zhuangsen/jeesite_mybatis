@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9,IE=10"/>
 
 <script src="${ctxStatic}/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="${ctxStatic}/common/jquery.browser.min.js" type="text/javascript"></script>
 <link href="${ctxStatic}/jquery-select2/3.4/select2.min.css" rel="stylesheet"/>
 <script src="${ctxStatic}/jquery-select2/3.4/select2.min.js" type="text/javascript"></script>
 <link href="${ctxStatic}/jquery-validation/1.11.0/jquery.validate.min.css" type="text/css" rel="stylesheet"/>

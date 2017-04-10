@@ -24,8 +24,6 @@ import com.thinkgem.jeesite_mybatis.modules.sys.entity.Role;
 
 /**
  * Activiti User Entity Service
- * @author ThinkGem
- * @version 2013-11-03
  */
 @Service
 public class ActUserEntityService extends UserEntityManager {

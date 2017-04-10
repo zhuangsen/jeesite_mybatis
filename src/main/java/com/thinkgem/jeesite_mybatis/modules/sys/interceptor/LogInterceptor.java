@@ -30,9 +30,9 @@ public class LogInterceptor extends BaseService implements HandlerInterceptor {
                              Object handler) throws Exception {
         logger.debug("==============================执行preHandle==============================");
         String requestRri = request.getRequestURI();
-        String uriPrefix = request.getContextPath() + Global.getAdminPath();
+//        String uriPrefix = request.getContextPath() + Global.getAdminPath();
         logger.debug("---------requestRri:" + requestRri);
-        logger.debug("---------uriPrefix" + uriPrefix);
+//        logger.debug("---------uriPrefix" + uriPrefix);
         if (logger.isDebugEnabled()) {
             long beginTime = System.currentTimeMillis();//1、开始时间
             startTimeThreadLocal.set(beginTime);        //线程绑定变量（该数据只有当前请求的线程可见）
@@ -47,9 +47,9 @@ public class LogInterceptor extends BaseService implements HandlerInterceptor {
                            ModelAndView modelAndView) throws Exception {
         logger.debug("==============================执行postHandle==============================");
         String requestRri = request.getRequestURI();
-        String uriPrefix = request.getContextPath() + Global.getAdminPath();
+//        String uriPrefix = request.getContextPath() + Global.getAdminPath();
         logger.debug("---------requestRri:" + requestRri);
-        logger.debug("---------uriPrefix" + uriPrefix);
+//        logger.debug("---------uriPrefix" + uriPrefix);
 
         if (modelAndView != null) {
             String viewName = modelAndView.getViewName();
@@ -72,11 +72,11 @@ public class LogInterceptor extends BaseService implements HandlerInterceptor {
                                 Object handler, Exception ex) throws Exception {
 
         String requestRri = request.getRequestURI();
-        String uriPrefix = request.getContextPath() + Global.getAdminPath();
+//        String uriPrefix = request.getContextPath() + Global.getAdminPath();
 
         logger.debug("==============================执行afterCompletion==============================");
         logger.debug("---------requestRri:" + requestRri);
-        logger.debug("---------uriPrefix:" + uriPrefix);
+//        logger.debug("---------uriPrefix:" + uriPrefix);
 
         // 保存日志
         LogUtils.saveLog(request, handler, ex, null);

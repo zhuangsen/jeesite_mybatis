@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.common.web;
 
 import java.io.IOException;
@@ -14,15 +11,13 @@ import com.thinkgem.jeesite_mybatis.common.utils.FileUtils;
 import com.thinkgem.jeesite_mybatis.modules.sys.utils.UserUtils;
 
 import com.ckfinder.connector.ConnectorServlet;
-import com.thinkgem.jeesite_mybatis.modules.sys.security.SystemAuthorizingRealm;
+import com.thinkgem.jeesite_mybatis.modules.sys.security.SystemAuthorizingRealm.Principal;
 
 /**
  * CKFinderConnectorServlet
- * @author ThinkGem
- * @version 2014-06-25
  */
 public class CKFinderConnectorServlet extends ConnectorServlet {
-	
+
 	private static final long serialVersionUID = 1L;
 	
 	@Override
@@ -41,7 +36,7 @@ public class CKFinderConnectorServlet extends ConnectorServlet {
 	
 	private void prepareGetResponse(final HttpServletRequest request,
 			final HttpServletResponse response, final boolean post) throws ServletException {
-		SystemAuthorizingRealm.Principal principal = (SystemAuthorizingRealm.Principal) UserUtils.getPrincipal();
+		Principal principal = UserUtils.getPrincipal();
 		if (principal == null){
 			return;
 		}

@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.oa.entity;
 
 import java.util.List;
@@ -16,8 +13,6 @@ import com.thinkgem.jeesite_mybatis.modules.sys.entity.User;
 
 /**
  * 通知通告Entity
- * @author ThinkGem
- * @version 2014-05-16
  */
 public class OaNotify extends DataEntity<OaNotify> {
 	

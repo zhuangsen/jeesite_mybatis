@@ -1,8 +1,3 @@
-/**
- * Copyright (c) 2005-2012 springside.org.cn
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- */
 package com.thinkgem.jeesite_mybatis.common.web;
 
 import java.io.UnsupportedEncodingException;
@@ -30,8 +25,6 @@ import com.thinkgem.jeesite_mybatis.modules.sys.utils.UserUtils;
 
 /**
  * Http与Servlet工具类.
- * @author calvin/thinkgem
- * @version 2014-8-19
  */
 public class Servlets {
 
