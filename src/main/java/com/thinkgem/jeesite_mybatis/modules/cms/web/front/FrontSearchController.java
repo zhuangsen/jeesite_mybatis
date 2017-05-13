@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.cms.web.front;
 
 
@@ -26,8 +23,6 @@ import com.thinkgem.jeesite_mybatis.modules.sys.utils.UserUtils;
 
 /**
  * 网站搜索Controller
- * @author ThinkGem
- * @version 2013-5-29
  */
 @Controller
 @RequestMapping(value = "${frontPath}/search")

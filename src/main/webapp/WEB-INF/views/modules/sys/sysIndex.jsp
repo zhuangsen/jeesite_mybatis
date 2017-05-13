@@ -168,7 +168,8 @@
                     $(this).click();
                 }
             });
-            // 获取通知数目  <c:set var="oaNotifyRemindInterval" value="${fns:getConfig('oa.notify.remind.interval')}"/>
+            // 获取通知数目
+            <c:set var="oaNotifyRemindInterval" value="${fns:getConfig('oa.notify.remind.interval')}"/>
             function getNotifyNum() {
                 $.get("${ctx}/oa/oaNotify/self/count?updateSession=0&t=" + new Date().getTime(), function (data) {
                     var num = parseFloat(data);

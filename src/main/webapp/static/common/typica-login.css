@@ -1,0 +1,145 @@
+html, body, table {
+    width: 100%;
+    text-align: center;
+}
+
+.form-signin-heading {
+    font-family: Helvetica, Georgia, Arial, sans-serif, 黑体;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #0663a2;
+}
+
+.form-signin-heading a{
+    text-decoration: none;
+}
+
+.form-signin {
+    position: relative;
+    text-align: left;
+    width: 300px;
+    padding: 25px 29px 29px;
+    margin: 0 auto 20px;
+    /*background-color: #fff;*/
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    /*border: 1px solid #e5e5e5;*/
+}
+
+.form-signin .checkbox {
+    margin-bottom: 10px;
+    color: #0663a2;
+}
+
+.form-signin .input-label {
+    font-size: 16px;
+    line-height: 23px;
+    color: #999;
+    font-weight: bold;
+}
+
+.form-signin .input-block-level {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px;
+    *width: 283px;
+    *padding-bottom: 0;
+    _padding: 7px 7px 9px 7px;
+}
+
+.form-signin .btn.btn-large {
+    font-size: 16px;
+}
+
+.form-signin #themeSwitch {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
+
+.form-signin div.validateCode {
+    padding-bottom: 15px;
+}
+
+.mid {
+    vertical-align: middle;
+}
+
+.header {
+    height: 80px;
+    padding-top: 82px;
+}
+
+.alert {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+    *padding-bottom: 0px;
+}
+
+/*label.error {
+    background: none;
+    width: 270px;
+    font-weight: normal;
+    color: inherit;
+    margin: 0;
+}*/
+
+.navbar .brand {
+    margin-top: 20px;
+    padding-bottom: 8px;
+    max-height: 40px;
+    width: auto;
+}
+/* line 49, ../sass/typica-login.scss */
+.navbar .navbar-inner {
+    height: 80px;
+    background: white;
+    filter: none;
+}
+/* line 54, ../sass/typica-login.scss */
+.navbar .nav {
+    margin-top: 20px;
+}
+/* line 56, ../sass/typica-login.scss */
+.navbar .nav > li > a {
+    padding: 10px 10px 11px;
+    color: #333;
+    text-shadow: none;
+}
+/* line 63, ../sass/typica-login.scss */
+.navbar .nav > li > a:hover {
+    color: #111;
+}
+/* line 67, ../sass/typica-login.scss */
+.navbar .nav > li.active > a {
+    background: none;
+    color: #111;
+}
+/* line 70, ../sass/typica-login.scss */
+.navbar .nav > li.active > a:hover {
+    background: none;
+    color: #111;
+}
+
+footer.navbar-fixed-bottom {
+    /*font-size: 16px;*/
+    font-family: "PT Sans", Arial, Helvetica, sans-serif;
+    line-height: 18px;
+    font-weight: 400;
+}
+
+footer.white {
+    padding-top: 10px;
+    height: 30px;
+    background: white;
+    text-align: center;
+}

@@ -123,8 +123,6 @@ public class CategoryService extends TreeService<CategoryDao, Category> {
 //		return dao.find(page, dc);
 //		page.setSpringPage(dao.findByParentId(category.getParent().getId(), page.getSpringPage()));
 //		return page;
-		category.setPage(page);
-		category.setInMenu(Global.SHOW);
 		page.setList(dao.findModule(category));
 		return page;
 	}
