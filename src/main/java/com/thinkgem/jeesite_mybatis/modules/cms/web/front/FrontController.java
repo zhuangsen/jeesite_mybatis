@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.cms.web.front;
 
 import java.util.Date;
@@ -39,8 +36,6 @@ import com.thinkgem.jeesite_mybatis.modules.cms.service.SiteService;
 
 /**
  * 网站Controller
- * @author ThinkGem
- * @version 2013-5-29
  */
 @Controller
 @RequestMapping(value = "${frontPath}")
@@ -270,7 +265,7 @@ public class FrontController extends BaseController{
 	 */
 	@RequestMapping(value = "comment", method=RequestMethod.GET)
 	public String comment(String theme, Comment comment, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<Comment> page = new Page<Comment>(request, response);
+		Page<Comment> page = new Page<>(request, response);
 		Comment c = new Comment();
 		c.setCategory(comment.getCategory());
 		c.setContentId(comment.getContentId());

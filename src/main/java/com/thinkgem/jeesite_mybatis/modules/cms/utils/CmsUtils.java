@@ -87,7 +87,8 @@ public class CmsUtils {
 			category.setSite(new Site(siteId));
 			category.setParent(new Category("1"));
 			category.setInMenu(Global.SHOW);
-			Page<Category> page = new Page<Category>(1, -1);
+			Page<Category> page = new Page<>(1, -1);
+			category.setPage(page);
 			page = categoryService.find(page, category);
 			mainNavList = page.getList();
 			CacheUtils.put(CMS_CACHE, "mainNavList_"+siteId, mainNavList);
@@ -155,7 +156,7 @@ public class CmsUtils {
 	 * ${fnc:getArticleList(category.site.id, category.id, not empty pageSize?pageSize:8, 'posid:2, orderBy: \"hits desc\"')}"
 	 */
 	public static List<Article> getArticleList(String siteId, String categoryId, int number, String param){
-		Page<Article> page = new Page<Article>(1, number, -1);
+		Page<Article> page = new Page<>(1, number, -1);
 		Category category = new Category(categoryId, new Site(siteId));
 		category.setParentIds(categoryId);
 		Article article = new Article(category);

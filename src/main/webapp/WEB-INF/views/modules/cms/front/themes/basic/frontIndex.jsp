@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/views/modules/cms/front/include/taglib.jsp" %>
-<!DOCTYPE html>
 <html>
 <head>
     <title>首页</title>
@@ -41,7 +40,7 @@
     <div class="span4">
         <h4>
             <small><a href="${ctx}/list-10${urlSuffix}" class="pull-right">更多&gt;&gt;</a></small>
-            政策法规
+            软件介绍
         </h4>
         <ul><c:forEach items="${fnc:getArticleList(site.id, 10, 8, '')}" var="article">
             <li><span class="pull-right"><fmt:formatDate value="${article.updateDate}" pattern="yyyy.MM.dd"/></span><a
