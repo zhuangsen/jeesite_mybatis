@@ -252,7 +252,7 @@ ORYX.I18N.JSONSupport = {
         name: "导入到 JSON",
         desc: "导入一个 JSON 模型",
         group: "导出",
-        selectFile: "请选择 JSON (.json) 文件或 JSON类型。!",
+        selectFile: "请选择 JSON (.jsontest) 文件或 JSON类型。!",
         file: "文件",
         btnImp: "导入",
         btnClose: "关闭",

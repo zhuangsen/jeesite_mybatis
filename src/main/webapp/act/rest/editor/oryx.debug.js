@@ -10753,7 +10753,7 @@ ORYX.Core.Canvas = ORYX.Core.AbstractShape.extend({
             newShape.node.id = "svg-" + shape.resourceId;
 			
             // Set parent to json object to be used later
-            // Due to the nested json structure, normally shape.parent is not set/ must not be set. 
+            // Due to the nested jsontest structure, normally shape.parent is not set/ must not be set.
             // In special cases, it can be easier to set this directly instead of a nested structure.
             shape.parent = "#" + ((shape.parent && shape.parent.resourceId) || parent.resourceId);
             
@@ -12047,9 +12047,9 @@ ORYX.Editor = {
     
 	/**
 	* Imports shapes in JSON as expected by {@link ORYX.Editor#loadSerialized}
-	* @param {Object|String} jsonObject The (serialized) json object to be imported
+	* @param {Object|String} jsonObject The (serialized) jsontest object to be imported
 	* @param {boolean } [noSelectionAfterImport=false] Set to true if no shapes should be selected after import
-	* @throws {SyntaxError} If the serialized json object contains syntax errors
+	* @throws {SyntaxError} If the serialized jsontest object contains syntax errors
 	*/
 	importJSON: function(jsonObject, noSelectionAfterImport) {
 		
@@ -18392,11 +18392,11 @@ new function(){
 				var toJSON = ORYX.Core.Canvas.prototype.toJSON;
 				ORYX.Core.Canvas.prototype.toJSON = function(){
 					// Call super
-					var json = toJSON.call(this);
+					var jsontest = toJSON.call(this);
 					// Check for replace stencil set namespace
-					json.stencilset.namespace = me.facade.getModelMetaData().model.stencilset.namespace;
+					jsontest.stencilset.namespace = me.facade.getModelMetaData().model.stencilset.namespace;
 					
-					return json;
+					return jsontest;
 				}
 			}()*/
 		}
@@ -28669,7 +28669,7 @@ ORYX.Plugins.Edit = Clazz.extend({
 				namespace:this.clipboard.SSnamespace
 			}
         }
-        // Apply json helper to iterate over json object
+        // Apply jsontest helper to iterate over jsontest object
         Ext.apply(canvas, ORYX.Core.AbstractShape.JSONHelper);
         
         var childShapeResourceIds =  canvas.getChildShapes(true).pluck("resourceId");

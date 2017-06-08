@@ -8211,7 +8211,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 			return responseContainer[ 0 ];
 		};
 
-		// force json dataType
+		// force jsontest dataType
 		s.dataTypes[ 0 ] = "json";
 
 		// Install callback
