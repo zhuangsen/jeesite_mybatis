@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.sys.web;
 
 import java.util.List;
@@ -32,11 +29,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-/**
- * 角色Controller
- * @author ThinkGem
- * @version 2013-12-05
- */
+
 @Controller
 @RequestMapping(value = "${adminPath}/sys/role")
 public class RoleController extends BaseController {
@@ -208,7 +201,7 @@ public class RoleController extends BaseController {
 				}else {
 					addMessage(redirectAttributes, "用户【" + user.getName() + "】从角色【" + role.getName() + "】中移除成功！");
 				}
-			}		
+			}
 		}
 		return "redirect:" + adminPath + "/sys/role/assign?id="+role.getId();
 	}
