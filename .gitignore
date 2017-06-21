@@ -15,3 +15,5 @@
 /src/main/webapp/userfiles/*
 /target/
 /bin/
+/module_jeesite_mybatis.xml
+/jeesite_mybatis.iml
