@@ -37,7 +37,7 @@ public class LoginController extends BaseController {
     /**
      * 管理登录
      */
-    @RequestMapping(value = "${adminPath}/login", method = {RequestMethod.POST,RequestMethod.GET})
+    @RequestMapping(value = "${adminPath}/login", method = {RequestMethod.POST, RequestMethod.GET})
     public String login(HttpServletRequest request, HttpServletResponse response, Model model) {
         if (logger.isDebugEnabled()) {
             logger.debug("login, active session size: {}", sessionDAO.getActiveSessions(false).size());
@@ -61,7 +61,7 @@ public class LoginController extends BaseController {
 
         //授权失败，跳转到登录页面
         String username = WebUtils.getCleanParam(request, FormAuthenticationFilter.DEFAULT_USERNAME_PARAM);
-        if(StringUtils.isNoneEmpty(username)){
+        if (StringUtils.isNoneEmpty(username)) {
             model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
             model.addAttribute("isValidateCodeLogin", isValidateCodeLogin(username, true, false));
         }
@@ -224,8 +224,8 @@ public class LoginController extends BaseController {
 //            return "redirect:" + adminPath + "/login";
 //        }
 
-		// 登录成功后，获取上次登录的当前站点ID
-		UserUtils.putCache("siteId", StringUtils.toLong(CookieUtils.getCookie(request, "siteId")));
+        // 登录成功后，获取上次登录的当前站点ID
+        UserUtils.putCache("siteId", StringUtils.toLong(CookieUtils.getCookie(request, "siteId")));
 
 //		System.out.println("==========================a");
 //		try {

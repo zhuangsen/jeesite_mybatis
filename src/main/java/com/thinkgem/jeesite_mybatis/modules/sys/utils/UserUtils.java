@@ -157,7 +157,6 @@ public class UserUtils {
      * @return
      */
     public static List<Menu> getMenuList() {
-        @SuppressWarnings("unchecked")
         List<Menu> menuList = (List<Menu>) getCache(CACHE_MENU_LIST);
         if (menuList == null) {
             User user = getUser();

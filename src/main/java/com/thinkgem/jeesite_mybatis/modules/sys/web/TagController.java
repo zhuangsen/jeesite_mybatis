@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.sys.web;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 标签Controller
- * @author ThinkGem
- * @version 2013-3-23
  */
 @Controller
 @RequestMapping(value = "${adminPath}/tag")

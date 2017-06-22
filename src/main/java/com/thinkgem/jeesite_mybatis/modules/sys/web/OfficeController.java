@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.thinkgem.jeesite_mybatis.modules.sys.web;
 
 import java.util.List;
@@ -31,8 +28,6 @@ import com.thinkgem.jeesite_mybatis.modules.sys.utils.UserUtils;
 
 /**
  * 机构Controller
- * @author ThinkGem
- * @version 2013-5-15
  */
 @Controller
 @RequestMapping(value = "${adminPath}/sys/office")
